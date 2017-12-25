@@ -16,7 +16,8 @@ class InputBar extends Component {
     });
   }
 
-  addTodo() {
+  addTodo(e) {
+    e.preventDefault();
     this.props.addTodo(this.state.newTodo);
     this.setState({
       newTodo: ""
@@ -25,15 +26,14 @@ class InputBar extends Component {
 
   render() {
     return (
-      <div>
+      <form onSubmit={this.addTodo}>
         <input
           type="text"
           placeholder="What needs to be done?"
           value={this.state.newTodo}
           onChange={this.handleInput}
         />
-        <button onClick={this.addTodo}>Add Todo</button>
-      </div>
+      </form>
     );
   }
 }
