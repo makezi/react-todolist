@@ -29,7 +29,7 @@ class TodoList extends Component {
   }
 
   render() {
-    const { todos, removeTodo, completeTodo } = this.props;
+    const { todos, removeTodo, completeTodo, clearCompletedTodo } = this.props;
     return (
       <div>
         {this.filterTodo(todos).map(todo => (
@@ -40,7 +40,11 @@ class TodoList extends Component {
             completeTodo={completeTodo}
           />
         ))}
-        <TodoListFilter todos={todos} onFilterChange={this.onFilterChange} />
+        <TodoListFilter
+          todos={todos}
+          onFilterChange={this.onFilterChange}
+          onClearCompletedTodo={clearCompletedTodo}
+        />
       </div>
     );
   }

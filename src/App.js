@@ -13,6 +13,7 @@ class App extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
+    this.clearCompletedTodo = this.clearCompletedTodo.bind(this);
   }
 
   addTodo(todo) {
@@ -38,6 +39,12 @@ class App extends Component {
     this.setState({ todos: newTodos });
   }
 
+  clearCompletedTodo() {
+    let newTodos = this.state.todos;
+    newTodos = newTodos.filter(todo => !todo.complete);
+    this.setState({ todos: newTodos });
+  }
+
   render() {
     return (
       <div className="App">
@@ -47,6 +54,7 @@ class App extends Component {
           todos={this.state.todos}
           removeTodo={this.removeTodo}
           completeTodo={this.completeTodo}
+          clearCompletedTodo={this.clearCompletedTodo}
         />
       </div>
     );
