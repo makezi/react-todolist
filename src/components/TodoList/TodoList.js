@@ -35,9 +35,7 @@ class TodoList extends Component {
         {this.filterTodo(todos).map(todo => (
           <TodoListItem
             key={todo.id}
-            id={todo.id}
-            content={todo.content}
-            complete={todo.complete}
+            todo={todo}
             removeTodo={removeTodo}
             completeTodo={completeTodo}
           />

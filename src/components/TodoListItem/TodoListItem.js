@@ -16,14 +16,19 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { id, content, complete } = this.props;
+    const { todo } = this.props;
     return (
       <div>
         <span>
-          {content}
-          <button onClick={() => this.handleRemoveTodo(id)}>&times;</button>
-          <button onClick={() => this.handleCompleteTodo(id)}>complete</button>
-          {complete ? <div>completed!</div> : <div>not completed!</div>}
+          <input
+            type="checkbox"
+            checked={todo.complete}
+            onChange={() => this.handleCompleteTodo(todo.id)}
+          />
+          {todo.content}
+          <button onClick={() => this.handleRemoveTodo(todo.id)}>
+            &times;
+          </button>
         </span>
       </div>
     );
