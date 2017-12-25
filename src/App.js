@@ -18,30 +18,22 @@ class App extends Component {
     const newTodos = this.state.todos;
     newTodos.push({
       id: Math.floor(Math.random() * 100000) + 1,
-      content: todo
+      content: todo,
+      complete: false
     });
-    this.setState({
-      todos: newTodos
-    });
+    this.setState({ todos: newTodos });
   }
 
   removeTodo(todoId) {
     let newTodos = this.state.todos;
     newTodos = newTodos.filter(todo => todo.id !== todoId);
-    this.setState({
-      todos: newTodos
-    });
+    this.setState({ todos: newTodos });
   }
 
   completeTodo(todoId) {
-    // Want to find a better way of updating values in state...
     let newTodos = this.state.todos;
-    for (let i = 0; i < newTodos.length; i++) {
-      if (newTodos[i].id === todoId) {
-        newTodos[i].complete = !newTodos[i].complete;
-      }
-    }
-    console.log(newTodos);
+    let index = newTodos.findIndex(todo => todo.id === todoId);
+    newTodos[index].complete = !newTodos[index].complete;
     this.setState({ todos: newTodos });
   }
 
