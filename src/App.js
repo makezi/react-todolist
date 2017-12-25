@@ -7,10 +7,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{ id: 1, content: "test" }]
+      todos: [{ id: 1, content: "test", complete: false }]
     };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
   }
 
   addTodo(todo) {
@@ -32,12 +33,28 @@ class App extends Component {
     });
   }
 
+  completeTodo(todoId) {
+    // Want to find a better way of updating values in state...
+    let newTodos = this.state.todos;
+    for (let i = 0; i < newTodos.length; i++) {
+      if (newTodos[i].id === todoId) {
+        newTodos[i].complete = !newTodos[i].complete;
+      }
+    }
+    console.log(newTodos);
+    this.setState({ todos: newTodos });
+  }
+
   render() {
     return (
       <div className="App">
         <h1>todos</h1>
         <InputBar addTodo={this.addTodo} />
-        <TodoList todos={this.state.todos} removeTodo={this.removeTodo} />
+        <TodoList
+          todos={this.state.todos}
+          removeTodo={this.removeTodo}
+          completeTodo={this.completeTodo}
+        />
       </div>
     );
   }
