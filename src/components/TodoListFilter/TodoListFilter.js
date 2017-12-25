@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class TodoListFilter extends Component {
   constructor(props) {
@@ -38,5 +39,11 @@ class TodoListFilter extends Component {
     );
   }
 }
+
+TodoListFilter.propTypes = {
+  todos: PropTypes.array,
+  onFilterChange: PropTypes.func,
+  onClearCompletedTodo: PropTypes.func
+};
 
 export default TodoListFilter;

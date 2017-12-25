@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TodoListItem from "../../components/TodoListItem/TodoListItem";
 import TodoListFilter from "../../components/TodoListFilter/TodoListFilter";
+import PropTypes from 'prop-types';
 
 class TodoList extends Component {
   constructor(props) {
@@ -49,5 +50,12 @@ class TodoList extends Component {
     );
   }
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  removeTodo: PropTypes.func,
+  completeTodo: PropTypes.func,
+  clearCompleteTodo: PropTypes.func
+};
 
 export default TodoList;

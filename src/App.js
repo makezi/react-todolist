@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
 import Header from "./components/Header/Header";
 import InputBar from "./components/InputBar/InputBar";
 import TodoList from "./components/TodoList/TodoList";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {

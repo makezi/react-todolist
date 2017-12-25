@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-class TodoItem extends Component {
+class TodoListItem extends Component {
   constructor(props) {
     super(props);
     this.handleRemoveTodo = this.handleRemoveTodo.bind(this);
@@ -35,4 +36,10 @@ class TodoItem extends Component {
   }
 }
 
-export default TodoItem;
+TodoListItem.propTypes = {
+  todo: PropTypes.object,
+  removeTodo: PropTypes.func,
+  completeTodo: PropTypes.func
+};
+
+export default TodoListItem;
