@@ -7,8 +7,12 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
+    const initTodos =
+      localStorage.getItem("todos") !== null
+        ? JSON.parse(localStorage.getItem("todos"))
+        : [{ id: 1, content: "Clean the dishes", complete: false }];
     this.state = {
-      todos: [{ id: 1, content: "test", complete: false }]
+      todos: initTodos
     };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
@@ -23,12 +27,14 @@ class App extends Component {
       content: todo,
       complete: false
     });
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     this.setState({ todos: newTodos });
   }
 
   removeTodo(todoId) {
     let newTodos = this.state.todos;
     newTodos = newTodos.filter(todo => todo.id !== todoId);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     this.setState({ todos: newTodos });
   }
 
@@ -36,12 +42,14 @@ class App extends Component {
     let newTodos = this.state.todos;
     let index = newTodos.findIndex(todo => todo.id === todoId);
     newTodos[index].complete = !newTodos[index].complete;
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     this.setState({ todos: newTodos });
   }
 
   clearCompletedTodo() {
     let newTodos = this.state.todos;
     newTodos = newTodos.filter(todo => !todo.complete);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
     this.setState({ todos: newTodos });
   }
 
