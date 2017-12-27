@@ -10,3 +10,15 @@ body {
   line-height: 1.5rem;
   background-color: #313d5a;
 }
+
+.footer-info {
+  text-align: center;
+  color: #eaeaea;
+  font-weight: 100;
+  font-size: 1.1rem;
+}
+
+.footer-info > a {
+  color: #59abe3;
+  text-decoration: none;
+}
