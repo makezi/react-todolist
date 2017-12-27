@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TodoListItem from "../../components/TodoListItem/TodoListItem";
 import TodoListFilter from "../../components/TodoListFilter/TodoListFilter";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class TodoList extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class TodoList extends Component {
   render() {
     const { todos, removeTodo, completeTodo, clearCompletedTodo } = this.props;
     return (
-      <div>
+      <div className="todo-list">
         {this.filterTodo(todos).map(todo => (
           <TodoListItem
             key={todo.id}

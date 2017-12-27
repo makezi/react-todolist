@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import "./InputBar.css";
 
 class InputBar extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class InputBar extends Component {
     return (
       <form onSubmit={this.addTodo}>
         <input
+          className="input-bar"
           type="text"
           placeholder="What needs to be done?"
           value={this.state.newTodo}

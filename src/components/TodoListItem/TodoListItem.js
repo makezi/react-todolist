@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./TodoListItem.css";
 
 class TodoListItem extends Component {
   constructor(props) {
@@ -19,18 +20,22 @@ class TodoListItem extends Component {
   render() {
     const { todo } = this.props;
     return (
-      <div>
-        <span>
+      <div className="todo-item">
+        <div className="todo-item-content">
           <input
             type="checkbox"
+            id={todo.id}
             checked={todo.complete}
             onChange={() => this.handleCompleteTodo(todo.id)}
           />
-          {todo.content}
-          <button onClick={() => this.handleRemoveTodo(todo.id)}>
-            &times;
-          </button>
-        </span>
+          <label for={todo.id}>{todo.content}</label>
+        </div>
+        <button
+          className="todo-item-delete"
+          onClick={() => this.handleRemoveTodo(todo.id)}
+        >
+          &times;
+        </button>
       </div>
     );
   }
