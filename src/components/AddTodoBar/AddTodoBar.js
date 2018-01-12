@@ -1,39 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./InputBar.css";
 
-class InputBar extends Component {
+class AddTodoBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      newTodo: ""
-    };
+    this.state = { todo: "" };
     this.handleInput = this.handleInput.bind(this);
     this.addTodo = this.addTodo.bind(this);
   }
 
-  handleInput(e) {
-    this.setState({
-      newTodo: e.target.value
-    });
+  handleInput(event) {
+    this.setState({ todo: event.target.value });
   }
 
-  addTodo(e) {
-    e.preventDefault();
-    this.props.addTodo(this.state.newTodo);
-    this.setState({
-      newTodo: ""
-    });
+  addTodo(event) {
+    event.preventDefault();
+    this.props.addTodo(this.state.todo);
+    this.setState({ todo: "" });
   }
 
   render() {
     return (
       <form onSubmit={this.addTodo}>
         <input
-          className="input-bar"
           type="text"
           placeholder="What needs to be done?"
-          value={this.state.newTodo}
+          value={this.state.todo}
           onChange={this.handleInput}
         />
       </form>
@@ -41,8 +33,8 @@ class InputBar extends Component {
   }
 }
 
-InputBar.propTypes = {
-  addTodo: PropTypes.func
+AddTodoBar.propTypes = {
+  todo: PropTypes.func
 };
 
-export default InputBar;
+export default AddTodoBar;

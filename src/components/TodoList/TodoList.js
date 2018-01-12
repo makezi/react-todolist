@@ -1,61 +1,38 @@
-import React, { Component } from "react";
-import TodoListItem from "../../components/TodoListItem/TodoListItem";
-import TodoListFilter from "../../components/TodoListFilter/TodoListFilter";
+import React from "react";
 import PropTypes from "prop-types";
+import TodoItem from "./TodoItem/TodoItem";
+import { Filters } from "../../constants";
 
-class TodoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: "SHOW_ALL"
-    };
-    this.onFilterChange = this.onFilterChange.bind(this);
-    this.filterTodo = this.filterTodo.bind(this);
-  }
-
-  onFilterChange(filter) {
-    this.setState({ filter });
-  }
-
-  filterTodo(todos) {
-    switch (this.state.filter) {
-      case "SHOW_COMPLETED":
-        return todos.filter(todo => todo.complete);
-      case "SHOW_ACTIVE":
-        return todos.filter(todo => !todo.complete);
-      case "SHOW_ALL":
-      default:
-        return todos;
-    }
-  }
-
-  render() {
-    const { todos, removeTodo, completeTodo, clearCompletedTodo } = this.props;
-    return (
-      <div className="todo-list">
-        {this.filterTodo(todos).map(todo => (
-          <TodoListItem
-            key={todo.id}
-            todo={todo}
-            removeTodo={removeTodo}
-            completeTodo={completeTodo}
-          />
-        ))}
-        <TodoListFilter
-          todos={todos}
-          onFilterChange={this.onFilterChange}
-          onClearCompletedTodo={clearCompletedTodo}
-        />
-      </div>
-    );
+function filterTodos(todos, filter) {
+  switch (filter) {
+    case Filters.SHOW_COMPLETED:
+      return todos.filter(todo => todo.completed);
+    case Filters.SHOW_ACTIVE:
+      return todos.filter(todo => !todo.completed);
+    case Filters.SHOW_ALL:
+    default:
+      return todos;
   }
 }
 
+const TodoList = ({ todos, filter, deleteTodo, toggleTodo }) => {
+  console.log(todos);
+  return (
+    <div>
+      {filterTodos(todos, filter).map(todo => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
+      ))}
+    </div>
+  );
+};
+
 TodoList.propTypes = {
-  todos: PropTypes.array,
-  removeTodo: PropTypes.func,
-  completeTodo: PropTypes.func,
-  clearCompleteTodo: PropTypes.func
+  todos: PropTypes.array.isRequired
 };
 
 export default TodoList;
