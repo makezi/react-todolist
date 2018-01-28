@@ -16,9 +16,8 @@ function filterTodos(todos, filter) {
 }
 
 const TodoList = ({ todos, filter, deleteTodo, toggleTodo }) => {
-  console.log(todos);
   return (
-    <div>
+    <ul>
       {filterTodos(todos, filter).map(todo => (
         <TodoItem
           key={todo.id}
@@ -27,12 +26,15 @@ const TodoList = ({ todos, filter, deleteTodo, toggleTodo }) => {
           toggleTodo={toggleTodo}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
 TodoList.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

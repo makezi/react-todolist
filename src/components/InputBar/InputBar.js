@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-class AddTodoBar extends Component {
+class InputBar extends Component {
   constructor(props) {
     super(props);
     this.state = { todo: "" };
@@ -28,13 +28,14 @@ class AddTodoBar extends Component {
           value={this.state.todo}
           onChange={this.handleInput}
         />
+        <input type="submit" value="+" onChange={this.handleInput} />
       </form>
     );
   }
 }
 
-AddTodoBar.propTypes = {
-  todo: PropTypes.func
+InputBar.propTypes = {
+  todo: PropTypes.object
 };
 
-export default AddTodoBar;
+export default InputBar;
