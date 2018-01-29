@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-class InputBar extends Component {
+class AddTodoInput extends Component {
   constructor(props) {
     super(props);
     this.state = { todo: "" };
@@ -9,12 +9,12 @@ class InputBar extends Component {
     this.addTodo = this.addTodo.bind(this);
   }
 
-  handleInput(event) {
-    this.setState({ todo: event.target.value });
+  handleInput(e) {
+    this.setState({ todo: e.target.value });
   }
 
-  addTodo(event) {
-    event.preventDefault();
+  addTodo(e) {
+    e.preventDefault();
     this.props.addTodo(this.state.todo);
     this.setState({ todo: "" });
   }
@@ -34,8 +34,8 @@ class InputBar extends Component {
   }
 }
 
-InputBar.propTypes = {
+AddTodoInput.propTypes = {
   todo: PropTypes.object
 };
 
-export default InputBar;
+export default AddTodoInput;

@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const TodoItem = ({ todo, deleteTodo, toggleTodo }) => {
+const TodoItem = ({ todo, deleteTodo, completeTodo }) => {
   return (
-    <div className="item">
+    <div className="todo">
       <input
         type="checkbox"
         id={todo.id}
         defaultChecked={todo.completed}
-        onClick={() => toggleTodo(todo.id)}
+        onClick={() => completeTodo(todo.id)}
       />
       <label htmlFor={todo.id}>{todo.todo}</label>
       <button onClick={() => deleteTodo(todo.id)}>&times;</button>
@@ -18,8 +18,7 @@ const TodoItem = ({ todo, deleteTodo, toggleTodo }) => {
 
 TodoItem.propTypes = {
   todo: PropTypes.object.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
-  toggleTodo: PropTypes.func.isRequired
+  completeTodo: PropTypes.func.isRequired
 };
 
 export default TodoItem;
