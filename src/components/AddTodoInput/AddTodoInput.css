@@ -1,0 +1,42 @@
+.add-todo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 10px;
+  position: relative;
+  width: 88%;
+  align-self: flex-end;
+}
+
+.add-todo--text {
+  padding: 5px;
+  width: 90%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.2em;
+  font-style: italic;
+  font-weight: 100;
+  color: #242424;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.add-todo--submit {
+  width: 10%;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.4);
+  transition: 0.15s;
+}
+
+.add-todo--submit:hover {
+  transform: scale(1.2);
+  transition: 0.15s;
+  color: #6BB3CA;
+}
+

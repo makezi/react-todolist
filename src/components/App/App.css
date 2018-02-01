@@ -1,0 +1,45 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 480px;
+  margin: 50px auto;
+  background: #F8F7F7;
+  background-image: repeating-linear-gradient(top, transparent 0%, transparent 50px, rgba(186, 192, 198, 0.8) 50px, rgba(186, 192, 198, 0.8) 51px);
+  border: 1px solid #BAC0C6;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 5px;
+}
+
+.app:before, .app:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.app:before {
+  left: 50px;
+  width: 5px;
+  border: solid;
+  border-color: rgba(108, 178, 202, 0.7);
+  border-width: 0 1px;
+}
+
+.app:after {
+  z-index: -1;
+  left: 0;
+  right: 0;
+  background: rgba(247, 247, 247, 0.9);
+  border: 1px solid rgba(170, 157, 134, 0.7);
+  border-radius: 5px;
+  transform: rotate(2deg);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 60px;
+  padding: 5px;
+}

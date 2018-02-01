@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./AddTodoInput.css";
 
 class AddTodoInput extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class AddTodoInput extends Component {
   }
 
   handleInput(e) {
+    if (e.target.value.length > 40) return;
     this.setState({ todo: e.target.value });
   }
 
@@ -21,14 +23,20 @@ class AddTodoInput extends Component {
 
   render() {
     return (
-      <form onSubmit={this.addTodo}>
+      <form className="add-todo" onSubmit={this.addTodo}>
         <input
+          className="add-todo--text"
           type="text"
           placeholder="What needs to be done?"
           value={this.state.todo}
           onChange={this.handleInput}
         />
-        <input type="submit" value="+" onChange={this.handleInput} />
+        <input
+          className="add-todo--submit"
+          type="submit"
+          value="+"
+          onChange={this.handleInput}
+        />
       </form>
     );
   }

@@ -1,0 +1,29 @@
+.filter-tabs {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: 33px;
+}
+
+@media screen and (min-width: 480px) {
+  .filter-tabs {
+    top: 37px;
+  }
+}
+
+.filter-tabs .tab {
+  padding: 10px;
+  margin-right: 5px;
+  background: rgb(226, 226, 226);
+  font-size: 0.8em;
+  font-style: italic;
+  border: 1px solid #BAC0C6;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+}
+
+.filter-tabs .active {
+  border-top: none;
+  background: #F8F7F7;
+}

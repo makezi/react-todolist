@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import TodoItem from "../TodoItem/TodoItem";
 import { VisibilityFilters } from "../../constants";
+import "./TodoList.css";
 
 function filterTodos(todos, filter) {
+  console.log("filter", filter);
   switch (filter) {
     case VisibilityFilters.SHOW_COMPLETED:
       return todos.filter(todo => todo.completed);

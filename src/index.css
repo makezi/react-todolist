@@ -6,19 +6,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 100;
+  color: #242424;
   line-height: 1.5rem;
   background-color: #313d5a;
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 .footer-info {
   text-align: center;
   color: #eaeaea;
   font-weight: 100;
-  font-size: 1.1rem;
+  font-size: 1.1em;
+  margin-top: 80px;
 }
 
 .footer-info > a {
   color: #59abe3;
   text-decoration: none;
 }
+
+/* DONT FORGET RESPONSIVE FONT!!! */

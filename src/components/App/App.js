@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import uuidv1 from "uuid";
 import AddTodoInput from "../AddTodoInput/AddTodoInput";
 import TodoList from "../TodoList/TodoList";
-import ClearCompletedButton from "../ClearCompletedButton/ClearCompletedButton";
-import FilterButtons from "../FilterButtons/FilterButtons";
+import FilterTabs from "../FilterTabs/FilterTabs";
 import TodosRemainingText from "../TodosRemainingText/TodosRemainingText";
 import { VisibilityFilters } from "../../constants";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +66,7 @@ class App extends Component {
   }
 
   setFilter(filter) {
+    console.log(filter);
     this.setState({ filter });
   }
 
@@ -79,9 +80,10 @@ class App extends Component {
           deleteTodo={this.deleteTodo}
           completeTodo={this.completeTodo}
         />
-        <ClearCompletedButton clearCompleted={this.clearCompleted} />
-        <TodosRemainingText todosLeft={this.calculateRemainingTodos()} />
-        <FilterButtons setFilter={this.setFilter} />
+        <div className="info">
+          <TodosRemainingText todosLeft={this.calculateRemainingTodos()} />
+        </div>
+        <FilterTabs setFilter={this.setFilter} />
       </div>
     );
   }
