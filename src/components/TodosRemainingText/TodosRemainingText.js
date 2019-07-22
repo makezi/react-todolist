@@ -1,10 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./TodosRemainingText.css";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const TodosRemainingText = ({ todosLeft }) => {
-  return <div className="todos-left">{todosLeft} tasks remaining</div>;
-};
+import './TodosRemainingText.css';
+
+const TodosRemainingText = ({ todosLeft }) => (
+  <div className="todos-left">{todosLeft} tasks remaining</div>
+);
 
 PropTypes.propTypes = {
   todosLeft: PropTypes.number.isRequired

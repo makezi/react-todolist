@@ -39,7 +39,7 @@ const App = () => {
   };
 
   const calculateRemainingTodos = () =>
-    todos.reduce((total, todo) => (total + todo.completed ? 0 : 1), 0);
+    todos.reduce((total, todo) => total + (!todo.completed ? 1 : 0), 0);
 
   return (
     <div className="app">
@@ -51,7 +51,7 @@ const App = () => {
         completeTodo={completeTodo}
       />
       <div className="info">
-        <TodosRemainingText todosLeft={calculateRemainingTodos} />
+        <TodosRemainingText todosLeft={calculateRemainingTodos()} />
       </div>
       <FilterTabs setFilter={setFilter} />
     </div>
