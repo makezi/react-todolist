@@ -12,6 +12,7 @@ const INITIAL_TODOS = JSON.parse(localStorage.getItem('todos')) || [
   { id: uuidv1(), todo: 'Practice guitar', completed: true },
   { id: uuidv1(), todo: 'Learn React', completed: false }
 ];
+const MINIMUM_TODO_INPUT_LENGTH = 3;
 
 const App = () => {
   const [todos, setTodos] = useState(INITIAL_TODOS);
@@ -22,6 +23,7 @@ const App = () => {
   }, [todos]);
 
   const addTodo = todo => {
+    if (todo.length <= MINIMUM_TODO_INPUT_LENGTH) return;
     const newTodos = [{ id: uuidv1(), todo, completed: false }, ...todos];
     setTodos(newTodos);
   };
