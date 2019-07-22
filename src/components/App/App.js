@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import uuidv1 from 'uuid';
 
-import AddTodoInput from '../AddTodoInput/AddTodoInput';
-import TodoList from '../TodoList/TodoList';
-import FilterTabs from '../FilterTabs/FilterTabs';
-import TodosRemainingText from '../TodosRemainingText/TodosRemainingText';
+import AddTodoInput from '../AddTodoInput';
+import TodoList from '../TodoList';
+import FilterTabs from '../FilterTabs';
+import TodosRemainingText from '../TodosRemainingText';
 import { VisibilityFilters } from '../../constants';
 import './App.css';
 

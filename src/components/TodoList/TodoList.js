@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TodoItem from '../TodoItem/TodoItem';
+import TodoItem from '../TodoItem';
 import { VisibilityFilters } from '../../constants';
 import './TodoList.css';
 

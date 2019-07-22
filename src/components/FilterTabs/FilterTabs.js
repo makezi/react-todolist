@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Tab from '../Tab/Tab';
+import Tab from '../Tab';
 import { VisibilityFilters } from '../../constants';
 import './FilterTabs.css';
 
