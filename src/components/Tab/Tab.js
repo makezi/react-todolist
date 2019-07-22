@@ -1,15 +1,28 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Tab = props => {
+const Tab = ({ isActive, index, onClick, tabIndex, children }) => {
   return (
     <button
-      className={`tab ${props.isActive ? "active" : ""}`}
-      index={props.index}
-      onClick={() => props.onClick(props.tabIndex)}
+      className={`tab ${isActive ? 'active' : ''}`}
+      index={index}
+      onClick={() => onClick(tabIndex)}
     >
-      {props.children}
+      {children}
     </button>
   );
+};
+
+Tab.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  tabIndex: PropTypes.number,
+  children: PropTypes.node
+};
+
+Tab.defaultProps = {
+  tabIndex: 0
 };
 
 export default Tab;
