@@ -1,7 +1,8 @@
 {
   "name": "react-todolist",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "Marko Djordjevic",
   "homepage": "https://makezi.github.io/react-todolist",
   "dependencies": {
     "gh-pages": "^2.0.1",
