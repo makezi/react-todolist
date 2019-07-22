@@ -1,46 +1,41 @@
-import React, { Component } from "react";
-import { VisibilityFilters } from "../../constants";
-import Tab from "../Tab/Tab";
-import "./FilterTabs.css";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-class FilterTabs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: 0
-    };
-    this.handleTabClick = this.handleTabClick.bind(this);
-  }
+import Tab from '../Tab/Tab';
+import { VisibilityFilters } from '../../constants';
+import './FilterTabs.css';
 
-  handleTabClick(filter, index) {
-    this.props.setFilter(filter);
-    this.setState({
-      activeTab: index === this.state.activeTab ? 0 : index
-    });
-  }
+const FilterTabs = ({ setFilter }) => {
+  const [activeTab, setActiveTab] = useState(0);
 
-  render() {
-    return (
-      <div className="filter-tabs">
-        {Object.entries(VisibilityFilters)
-          .reverse()
-          .map((filter, index) => {
-            return (
-              <Tab
-                onClick={() => {
-                  this.handleTabClick(filter[1], index);
-                }}
-                key={index}
-                index={index}
-                isActive={index === this.state.activeTab}
-              >
-                {filter[1]}
-              </Tab>
-            );
-          })}
-      </div>
-    );
-  }
-}
+  const handleOnTabClick = (filter, index) => {
+    setFilter(filter);
+    const currentActiveTab = index === activeTab ? 0 : index;
+    setActiveTab(currentActiveTab);
+  };
+
+  return (
+    <div className="filter-tabs">
+      {Object.entries(VisibilityFilters)
+        .reverse()
+        .map((filter, index) => {
+          return (
+            <Tab
+              onClick={() => handleOnTabClick(filter[1], index)}
+              key={index}
+              index={index}
+              isActive={index === activeTab}
+            >
+              {filter[1]}
+            </Tab>
+          );
+        })}
+    </div>
+  );
+};
+
+FilterTabs.propTypes = {
+  setFilter: PropTypes.func.isRequired
+};
 
 export default FilterTabs;
